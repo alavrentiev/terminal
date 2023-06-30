@@ -50,6 +50,7 @@
 #include <p32xxxx.h>
 #include <plib.h>
 #include <string.h>
+#include <stdio.h>
 #include <ctype.h>
 #include "main.h"
 #include "vga.h"
@@ -352,6 +353,7 @@ void cmd_SetMode(void) {
 
 // turn off automatic line wrap, etc
 void cmd_ResetMode(void) {
+    if(arg[0] == 2) mode = VT52;
     if(arg[0] == 7) AutoLineWrap = false;
     if(arg[0] == 9) {
         ShowCursor(false);                                              // turn off the cursor to prevent it from getting confused
